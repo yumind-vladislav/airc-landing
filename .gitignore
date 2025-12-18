@@ -19,6 +19,7 @@
 *.MP4
 *.mov
 *.avi
+!docs/assets/videos/hero.mov
 
 # Рабочие материалы и документация разработки
 source/
