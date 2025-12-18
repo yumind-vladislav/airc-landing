@@ -677,17 +677,14 @@
 
     <!-- Footer -->
     <footer id="footer" class="border-t border-line py-12 bg-black text-secondary">
-        <div class="max-w-[1400px] mx-auto px-5 md:px-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
-            <div>
-                <a href="#" class="font-display text-4xl text-white mb-4 block">AI4C.</a>
-                <div class="flex flex-col gap-2 font-mono text-xs uppercase">
-                    <a href="https://t.me/aiforcreators" class="hover:text-white transition-colors" target="_blank" rel="noopener">Telegram Channel</a>
-                    <a href="mailto:zaychikova@lovesgucci.ru" class="hover:text-white transition-colors">zaychikova@lovesgucci.ru</a>
-                </div>
+        <div class="max-w-[1400px] mx-auto px-5 md:px-16 flex flex-col items-center gap-6 text-center">
+            <a href="#" class="font-display text-4xl text-white">AI4C.</a>
+            <div class="flex flex-col md:flex-row items-center gap-3 font-mono text-[11px] uppercase">
+                <a href="https://t.me/aiforcreators" class="inline-flex items-center justify-center px-5 py-2 rounded-full border border-accent text-accent hover:bg-accent hover:text-black shadow-[0_0_20px_rgba(255,43,214,0.35)] transition-all" target="_blank" rel="noopener">Telegram Channel</a>
+                <a href="mailto:zaychikova@lovesgucci.ru" class="inline-flex items-center justify-center px-5 py-2 rounded-full border border-accent text-accent hover:bg-accent hover:text-black shadow-[0_0_20px_rgba(255,43,214,0.35)] transition-all">zaychikova@lovesgucci.ru</a>
             </div>
-
-            <div class="flex flex-col md:items-end gap-4">
-                <div class="flex gap-6 font-mono text-[10px] uppercase text-zinc-600">
+            <div class="flex flex-col items-center gap-3">
+                <div class="flex flex-col md:flex-row gap-4 font-mono text-[10px] uppercase text-zinc-600">
                     <a href="#" class="hover:text-zinc-400">Политика конфиденциальности</a>
                     <a href="#" class="hover:text-zinc-400">Оферта</a>
                 </div>
@@ -697,6 +694,141 @@
             </div>
         </div>
     </footer>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+        <div class="relative w-full max-w-3xl max-h-[90vh] bg-surface border border-line overflow-hidden">
+            <!-- Header -->
+            <div class="sticky top-0 bg-surface border-b border-line px-6 py-5 flex justify-between items-center">
+                <h2 class="font-display text-2xl uppercase text-white">Политика конфиденциальности</h2>
+                <button onclick="closeModal('privacy-modal')" class="text-secondary hover:text-accent transition-colors" aria-label="Закрыть">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <!-- Content -->
+            <div class="overflow-y-auto px-6 py-8 max-h-[calc(90vh-80px)] text-secondary text-sm leading-relaxed space-y-6">
+                <div>
+                    <h3 class="text-white font-semibold mb-2">1. Общие положения</h3>
+                    <p>Настоящая Политика конфиденциальности определяет порядок обработки и защиты персональных данных пользователей образовательного курса AI FOR CREATORS 4.0 (далее — Курс). Оператором персональных данных является ИП Зайчикова Арина Дмитриевна.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-semibold mb-2">2. Собираемые данные</h3>
+                    <p>При заполнении анкеты предзаписи мы собираем следующие данные:</p>
+                    <ul class="list-disc pl-5 mt-2 space-y-1">
+                        <li>Имя</li>
+                        <li>Номер телефона</li>
+                        <li>Telegram username</li>
+                        <li>Информация об источнике перехода</li>
+                        <li>Цели обучения</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-semibold mb-2">3. Цели обработки данных</h3>
+                    <p>Персональные данные используются для:</p>
+                    <ul class="list-disc pl-5 mt-2 space-y-1">
+                        <li>Связи с вами по вопросам обучения</li>
+                        <li>Подтверждения места на курсе</li>
+                        <li>Предоставления образовательных услуг</li>
+                        <li>Информирования о старте курса и важных обновлениях</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-semibold mb-2">4. Защита данных</h3>
+                    <p>Мы обеспечиваем защиту персональных данных согласно требованиям ФЗ-152 "О персональных данных". Данные хранятся на защищённых серверах и не передаются третьим лицам без вашего согласия, за исключением случаев, предусмотренных законодательством РФ.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-semibold mb-2">5. Ваши права</h3>
+                    <p>Вы имеете право:</p>
+                    <ul class="list-disc pl-5 mt-2 space-y-1">
+                        <li>Получать информацию о хранящихся данных</li>
+                        <li>Требовать исправления неточных данных</li>
+                        <li>Требовать удаления ваших данных</li>
+                        <li>Отозвать согласие на обработку данных</li>
+                    </ul>
+                    <p class="mt-2">Для реализации этих прав свяжитесь с нами: <a href="mailto:zaychikova@lovesgucci.ru" class="text-accent hover:underline">zaychikova@lovesgucci.ru</a></p>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-semibold mb-2">6. Контакты</h3>
+                    <p>По вопросам обработки персональных данных:</p>
+                    <p class="mt-1">Email: <a href="mailto:zaychikova@lovesgucci.ru" class="text-accent hover:underline">zaychikova@lovesgucci.ru</a></p>
+                    <p>Telegram: <a href="https://t.me/aiforcreators" class="text-accent hover:underline" target="_blank" rel="noopener">@aiforcreators</a></p>
+                </div>
+
+                <p class="text-xs text-zinc-600 mt-8">Дата последнего обновления: 18 декабря 2024 г.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Offer Modal -->
+    <div id="offer-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+        <div class="relative w-full max-w-3xl max-h-[90vh] bg-surface border border-line overflow-hidden">
+            <!-- Header -->
+            <div class="sticky top-0 bg-surface border-b border-line px-6 py-5 flex justify-between items-center">
+                <h2 class="font-display text-2xl uppercase text-white">Договор оферты</h2>
+                <button onclick="closeModal('offer-modal')" class="text-secondary hover:text-accent transition-colors" aria-label="Закрыть">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <!-- Content -->
+            <div class="overflow-y-auto px-6 py-8 max-h-[calc(90vh-80px)] text-secondary text-sm leading-relaxed space-y-6">
+                <div>
+                    <h3 class="text-white font-semibold mb-2">1. Предмет договора</h3>
+                    <p>ИП Зайчикова Арина Дмитриевна (далее — Исполнитель) обязуется оказать образовательные услуги в рамках онлайн-курса "AI FOR CREATORS 4.0" (далее — Курс), а Заказчик обязуется оплатить и принять эти услуги.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-semibold mb-2">2. Услуги</h3>
+                    <p>В рамках Курса предоставляются:</p>
+                    <ul class="list-disc pl-5 mt-2 space-y-1">
+                        <li>Доступ к видео-урокам и обучающим материалам</li>
+                        <li>Практические домашние задания с проверкой</li>
+                        <li>Обратная связь от куратора в закрытом чате</li>
+                        <li>Доступ к сообществу студентов курса</li>
+                        <li>Сертификат о прохождении курса (при выполнении всех заданий)</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-semibold mb-2">3. Порядок предзаписи</h3>
+                    <p>Заполнение анкеты предзаписи не является заключением договора и не накладывает финансовых обязательств. После заполнения анкеты с вами свяжется представитель Исполнителя для подтверждения места и согласования условий.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-semibold mb-2">4. Стоимость и оплата</h3>
+                    <p>Стоимость курса и условия оплаты согласовываются индивидуально и сообщаются при подтверждении предзаписи. Оплата производится до начала обучения по реквизитам, предоставленным Исполнителем.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-semibold mb-2">5. Доступ к материалам</h3>
+                    <p>Доступ к материалам курса предоставляется после поступления оплаты и действует в течение срока проведения курса плюс 30 дней после его окончания. Все материалы курса являются интеллектуальной собственностью Исполнителя.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-semibold mb-2">6. Ответственность сторон</h3>
+                    <p>Исполнитель обязуется предоставить доступ к материалам и обратную связь в сроки, указанные в программе курса. Заказчик обязуется не распространять материалы курса третьим лицам и соблюдать условия использования.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-semibold mb-2">7. Возврат средств</h3>
+                    <p>Возврат денежных средств возможен в течение 3 дней с момента оплаты при условии, что доступ к материалам курса не был использован. После начала использования материалов возврат не производится.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-semibold mb-2">8. Реквизиты</h3>
+                    <p>ИП Зайчикова Арина Дмитриевна</p>
+                    <p class="mt-1">Email: <a href="mailto:zaychikova@lovesgucci.ru" class="text-accent hover:underline">zaychikova@lovesgucci.ru</a></p>
+                    <p>Telegram: <a href="https://t.me/aiforcreators" class="text-accent hover:underline" target="_blank" rel="noopener">@aiforcreators</a></p>
+                </div>
+
+                <p class="text-xs text-zinc-600 mt-8">Дата публикации: 18 декабря 2024 г.</p>
+            </div>
+        </div>
+    </div>
 
     <!-- Custom Scripts -->
     <script src="scripts/main.js"></script>
