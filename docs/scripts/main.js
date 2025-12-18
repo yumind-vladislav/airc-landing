@@ -153,27 +153,16 @@ function initPresaleForm() {
         });
 
         try {
-            const response = await fetch(endpoint, {
+            await fetch(endpoint, {
                 method: 'POST',
-                mode: 'cors',
+                mode: 'no-cors',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
                 },
                 body: payload.toString()
             });
 
-            if (!response.ok) {
-                throw new Error(`HTTP ${response.status}`);
-            }
-
-            let responseData = null;
-            try {
-                responseData = await response.json();
-            } catch (error) {
-                responseData = null;
-            }
-
-            setStatus(responseData && responseData.message ? responseData.message : 'Заявка отправлена!');
+            setStatus('Заявка отправлена!');
             form.reset();
 
             if (successMessage) {
