@@ -18,6 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Lazy loading для видео
     initLazyVideo();
+
+    // Модальные окна
+    initModals();
 });
 
 // ============================================
@@ -242,6 +245,56 @@ function initActiveNavigation() {
 
     sections.forEach(section => {
         observer.observe(section);
+    });
+}
+
+// ============================================
+// Модальные окна (Политика, Оферта)
+// ============================================
+function initModals() {
+    // Глобальные функции для доступа из HTML onclick
+    window.openModal = (modalId) => {
+        const modal = document.getElementById(modalId);
+        if (!modal) return;
+
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+
+        // Инициализируем иконки в модалке
+        if (typeof lucide !== 'undefined') {
+            setTimeout(() => lucide.createIcons(), 50);
+        }
+    };
+
+    window.closeModal = (modalId) => {
+        const modal = document.getElementById(modalId);
+        if (!modal) return;
+
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+    };
+
+    // Закрытие при клике на overlay
+    const modals = document.querySelectorAll('[id$="-modal"]');
+    modals.forEach(modal => {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal(modal.id);
+            }
+        });
+    });
+
+    // Закрытие по Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            modals.forEach(modal => {
+                if (!modal.classList.contains('hidden')) {
+                    closeModal(modal.id);
+                }
+            });
+        }
     });
 }
 
