@@ -289,27 +289,25 @@
         </div>
 
         <!-- Testimonial: Jane -->
-        <details class="group border border-line bg-surface mb-6 open:border-accent transition-colors duration-300">
-            <summary class="flex flex-col md:flex-row gap-6 p-6 cursor-pointer select-none">
+        <details class="group border border-line bg-surface mb-8 open:border-accent transition-colors duration-300">
+            <summary class="flex flex-col gap-8 p-8 md:p-10 cursor-pointer select-none">
                 <!-- Photo -->
-                <div class="w-24 h-24 md:w-32 md:h-32 flex-shrink-0 overflow-hidden border border-line">
+                <div class="w-full md:w-64 h-64 md:h-80 mx-auto overflow-hidden border border-line">
                     <img src="assets/images/jane-stylist.png" alt="Jane" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
                 </div>
 
                 <!-- Info & Preview -->
-                <div class="flex-1 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center gap-3 mb-2">
-                            <h3 class="font-display text-2xl uppercase tracking-wide group-hover:text-accent transition-colors">Jane</h3>
-                            <span class="font-mono text-[10px] text-secondary uppercase tracking-wider">Stylist / Creator</span>
-                        </div>
-                        <p class="font-serif italic text-lg md:text-xl text-white leading-relaxed">
-                            "AI помог мне найти выплеск эмоциональной составляющей в визуализации — новой, смелой и яркой"
-                        </p>
+                <div class="flex flex-col items-center text-center">
+                    <div class="mb-6">
+                        <h3 class="font-display text-4xl md:text-5xl uppercase tracking-wide group-hover:text-accent transition-colors mb-2">Jane</h3>
+                        <span class="font-mono text-xs text-secondary uppercase tracking-widest">Stylist / Creator</span>
                     </div>
-                    <div class="flex items-center gap-2 mt-4">
-                        <span class="font-mono text-xs text-accent uppercase">Читать полностью</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent group-open:rotate-45 transition-transform duration-300">
+                    <p class="font-serif italic text-xl md:text-2xl text-white leading-relaxed max-w-3xl mb-6">
+                        "AI помог мне найти выплеск эмоциональной составляющей в визуализации — новой, смелой и яркой"
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <span class="font-mono text-sm text-accent uppercase tracking-wider">Читать полностью</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent group-open:rotate-45 transition-transform duration-300">
                             <path d="M5 12h14"></path>
                             <path d="M12 5v14"></path>
                         </svg>
@@ -318,7 +316,7 @@
             </summary>
 
             <!-- Full Content -->
-            <div class="px-6 pb-6 pt-2 border-t border-line">
+            <div class="px-8 md:px-10 pb-10 pt-6 border-t border-line">
                 <!-- Full Text -->
                 <div class="mb-8">
                     <p class="text-secondary text-sm md:text-base leading-relaxed mb-4">
@@ -575,7 +573,7 @@
                 <p class="text-secondary font-light">Заполните анкету. Мы свяжемся с вами в Telegram, чтобы подтвердить место и обсудить цели.</p>
             </div>
 
-            <form id="presaleForm" class="space-y-6">
+            <form id="presaleForm" data-apps-script-url="https://script.google.com/macros/s/AKfycbyQPQv_LjPl0YiUZikpBN6h4AH1LGfk-DkQnf97FAXL2e05mfFy8Vet5nMQ92uc-TPelA/exec" class="space-y-6">
                 <div class="group">
                     <label for="name" class="block font-mono text-xs uppercase text-secondary mb-2 pl-1">Имя</label>
                     <input type="text" id="name" name="name" placeholder="Arina" required
@@ -613,6 +611,7 @@
                     <button type="submit" class="w-full bg-white text-black font-semibold uppercase tracking-widest py-5 hover:bg-accent hover:text-white transition-all duration-300 relative group overflow-hidden">
                         <span class="relative z-10">Отправить заявку</span>
                     </button>
+                    <p id="presaleStatus" class="text-center mt-4 text-[11px] text-secondary" role="status" aria-live="polite"></p>
                 </div>
 
                 <!-- Success message (hidden by default) -->

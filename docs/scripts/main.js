@@ -104,10 +104,24 @@ function initSmoothScroll() {
 function initPresaleForm() {
     const form = document.getElementById('presaleForm');
     const successMessage = document.getElementById('successMessage');
+    const statusMessage = document.getElementById('presaleStatus');
 
     if (!form) return;
 
-    form.addEventListener('submit', (e) => {
+    const endpoint = form.dataset.appsScriptUrl;
+
+    const setStatus = (message) => {
+        if (statusMessage) {
+            statusMessage.textContent = message;
+        }
+    };
+
+    if (!endpoint) {
+        setStatus('Укажите URL веб-приложения Apps Script.');
+        return;
+    }
+
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         // Получение данных формы
@@ -125,20 +139,57 @@ function initPresaleForm() {
             return;
         }
 
-        // Здесь можно добавить отправку на сервер
-        // Например: fetch('/api/presale', { method: 'POST', body: JSON.stringify(data) })
+        const submitButton = form.querySelector('button[type="submit"]');
+        if (submitButton) submitButton.disabled = true;
+        setStatus('Отправляем заявку...');
 
-        // Показываем сообщение об успехе
-        form.style.display = 'none';
-        successMessage.classList.remove('hidden');
+        const payload = new URLSearchParams({
+            name: data.name,
+            phone: data.phone,
+            telegram: data.telegram,
+            privacy: data.privacy,
+            source: window.location.href,
+            submittedAt: new Date().toISOString()
+        });
 
-        // Пере-инициализируем иконки после показа сообщения
-        if (typeof lucide !== 'undefined') {
-            setTimeout(() => lucide.createIcons(), 100);
+        try {
+            const response = await fetch(endpoint, {
+                method: 'POST',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                },
+                body: payload.toString()
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+
+            let responseData = null;
+            try {
+                responseData = await response.json();
+            } catch (error) {
+                responseData = null;
+            }
+
+            setStatus(responseData && responseData.message ? responseData.message : 'Заявка отправлена!');
+            form.reset();
+
+            if (successMessage) {
+                form.style.display = 'none';
+                successMessage.classList.remove('hidden');
+            }
+
+            if (typeof lucide !== 'undefined') {
+                setTimeout(() => lucide.createIcons(), 100);
+            }
+        } catch (error) {
+            console.error('Apps Script submit failed:', error);
+            setStatus('Не удалось отправить. Попробуйте позже или напишите нам в Telegram.');
+        } finally {
+            if (submitButton) submitButton.disabled = false;
         }
-
-        // Логирование (для отладки, убрать в продакшене)
-        console.log('Форма отправлена:', data);
     });
 }
 
