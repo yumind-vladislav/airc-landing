@@ -156,10 +156,7 @@ function initPresaleForm() {
             await fetch(endpoint, {
                 method: 'POST',
                 mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-                },
-                body: payload.toString()
+                body: payload
             });
 
             setStatus('Заявка отправлена!');
