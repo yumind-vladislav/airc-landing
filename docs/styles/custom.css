@@ -130,12 +130,8 @@ details > summary::-webkit-details-marker {
    ============================================ */
 
 .image-grayscale {
-    filter: grayscale(100%) contrast(110%);
-    transition: filter 0.4s ease-out;
-}
-
-.image-grayscale:hover {
-    filter: grayscale(0%) contrast(100%);
+    filter: none;
+    transition: none;
 }
 
 /* ============================================
@@ -182,23 +178,14 @@ nav[class*="backdrop-blur"],
 /* Grayscale effect для кейсов с group hover */
 #cases article.group img,
 #cases article.group video {
-    filter: grayscale(100%);
-    transition: filter 0.4s ease-out;
-}
-
-#cases article.group:hover img,
-#cases article.group:hover video {
-    filter: grayscale(0%);
+    filter: none;
+    transition: none;
 }
 
 /* Дополнительное правило для grid-контейнера (Case 3) */
 #cases article.group .grid img {
-    filter: grayscale(100%);
-    transition: filter 0.4s ease-out;
-}
-
-#cases article.group:hover .grid img {
-    filter: grayscale(0%);
+    filter: none;
+    transition: none;
 }
 
 /* Выравнивание текста в карточках кейсов */
