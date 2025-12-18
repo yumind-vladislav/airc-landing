@@ -1,0 +1,328 @@
+/* ============================================
+   AI4C Custom Styles
+   Дополнительные стили для лендинга AI FOR CREATORS 4.0
+   ============================================ */
+
+/* CSS Variables (Токены дизайна) */
+:root {
+    /* Цвета */
+    --bg: #0B0B0D;
+    --black: #000000;
+    --surface: #14141A;
+    --line: #2A2A2F;
+    --text-primary: #F5F5F7;
+    --text-secondary: #B6B6BE;
+    --accent: #FF2BD6;
+    --accent-hover: #FF8FE7;
+
+    /* Типографика */
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+    --font-serif: 'Bodoni Moda', serif;
+}
+
+/* ============================================
+   Base Styles
+   ============================================ */
+
+::selection {
+    background-color: var(--accent);
+    color: #fff;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text-primary);
+}
+
+/* ============================================
+   Grain Overlay
+   ============================================ */
+
+.grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.4%22/%3E%3C/svg%3E');
+    opacity: 0.07;
+    pointer-events: none;
+    z-index: 50;
+}
+
+/* ============================================
+   Scrollbar
+   ============================================ */
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--line);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+/* ============================================
+   Hairline Borders
+   ============================================ */
+
+.hairline-b {
+    border-bottom: 1px solid var(--line);
+}
+
+.hairline-t {
+    border-top: 1px solid var(--line);
+}
+
+.hairline-l {
+    border-left: 1px solid var(--line);
+}
+
+.hairline-r {
+    border-right: 1px solid var(--line);
+}
+
+/* ============================================
+   Marquee Animation
+   ============================================ */
+
+@keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+}
+
+.animate-marquee {
+    animation: marquee 20s linear infinite;
+}
+
+.marquee-text {
+    color: var(--accent);
+    opacity: 1;
+}
+
+/* ============================================
+   Details/Summary (Accordion)
+   ============================================ */
+
+details > summary {
+    list-style: none;
+}
+
+details > summary::-webkit-details-marker {
+    display: none;
+}
+
+/* ============================================
+   Image Effects
+   ============================================ */
+
+.image-grayscale {
+    filter: grayscale(100%) contrast(110%);
+    transition: filter 0.4s ease;
+}
+
+.image-grayscale:hover {
+    filter: grayscale(0%) contrast(100%);
+}
+
+/* Grayscale effect для кейсов с group hover */
+#cases article.group img,
+#cases article.group video {
+    filter: grayscale(100%);
+    transition: filter 0.5s ease;
+    will-change: filter;
+}
+
+#cases article.group:hover img,
+#cases article.group:hover video {
+    filter: grayscale(0%);
+}
+
+/* Дополнительное правило для grid-контейнера (Case 3) */
+#cases article.group .grid img {
+    filter: grayscale(100%);
+    transition: filter 0.5s ease;
+    will-change: filter;
+}
+
+#cases article.group:hover .grid img {
+    filter: grayscale(0%);
+}
+
+/* Выравнивание текста в карточках кейсов */
+#cases article.group {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#cases article.group > ul {
+    flex-grow: 1;
+}
+
+#cases article.group > div:last-child {
+    margin-top: auto;
+}
+
+/* ============================================
+   Focus Ring (Accessibility)
+   ============================================ */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+details:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* ============================================
+   Typography Utilities
+   ============================================ */
+
+.font-display {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+}
+
+.font-mono {
+    font-family: var(--font-mono);
+}
+
+.font-serif {
+    font-family: var(--font-serif);
+}
+
+/* Meta text (маленький моноширинный текст) */
+.meta-text {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+}
+
+/* ============================================
+   Components
+   ============================================ */
+
+/* Card (карточка) */
+.card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 1.5rem;
+    transition: border-color 0.3s ease;
+}
+
+.card:hover {
+    border-color: var(--accent);
+}
+
+/* Divider (разделитель секций) */
+.divider {
+    width: 100%;
+    height: 1px;
+    background: var(--line);
+    margin: 3rem 0;
+}
+
+/* Button Primary (основная кнопка) */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent);
+    color: #fff;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* Button Ghost (прозрачная кнопка) */
+.btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid var(--line);
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+}
+
+.btn-ghost:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: 0 0 15px rgba(255, 43, 214, 0.3);
+}
+
+/* Input Field (поле ввода) */
+.input-field {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #27272a;
+    color: var(--text-primary);
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+.input-field::placeholder {
+    color: #3f3f46;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent);
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* ============================================
+   Responsive Utilities
+   ============================================ */
+
+@media (max-width: 768px) {
+    .font-display {
+        letter-spacing: -0.01em;
+    }
+}

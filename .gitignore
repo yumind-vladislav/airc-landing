@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE
+.vscode/
+.idea/
+.cursor/
+
+# Временные файлы
+*.log
+*.tmp
+*.cache
+
+# Большие медиафайлы (можно добавить в репозиторий отдельно)
+*.mp4
+*.MP4
+*.mov
+*.avi
+
+# Игнорируем папку с архивом
+source/
+
+# Игнорируем папку aiforcreators (если это старая версия)
+aiforcreators/

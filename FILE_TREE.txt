@@ -1,0 +1,123 @@
+AI4C — Структура проекта
+========================
+
+📁 AI4C/
+│
+├── 🚀 START_HERE.md                    ← НАЧНИ ОТСЮДА!
+├── 📖 README.md                        ← Полное описание проекта
+├── 📦 PACKAGE_SUMMARY.md               ← Итоговый список всех файлов
+│
+├── 📚 ИНСТРУКЦИИ ПО ДЕПЛОЮ
+│   ├── TIMEWEB_DEPLOY_GUIDE.md         ← Главная инструкция (Способ 1, 2)
+│   ├── DEPLOY_CHECKLIST.md             ← Чеклист деплоя (отмечай выполненное)
+│   ├── FORM_INTEGRATION.md             ← Настройка формы (4 варианта)
+│   ├── GIT_COMMANDS.md                 ← Шпаргалка по Git
+│   └── BEGET_VS_TIMEWEB_COMPARISON.md  ← Сравнение хостингов
+│
+├── 🎨 ДЕПЛОЙ НА ТИЛЬДУ (альтернатива)
+│   ├── README_TILDA_DEPLOY.md          ← Введение в Тильду
+│   ├── TILDA_TRANSFER_GUIDE.md         ← Подробный гайд переноса
+│   ├── TILDA_CHECKLIST.md              ← Чеклист переноса
+│   └── TILDA_ASSETS_LIST.md            ← Список изображений
+│
+├── 📁 site/ ← ГОТОВЫЙ ЛЕНДИНГ (6.3 MB)
+│   ├── index.html                      ← Главная страница (27 KB)
+│   ├── privacy-policy.html             ← Политика конфиденциальности ⚠️
+│   ├── .gitignore                      ← Исключения для Git
+│   ├── README.md                       ← Описание лендинга
+│   │
+│   ├── 📁 styles/
+│   │   └── custom.css                  ← Кастомные стили (3.2 KB)
+│   │
+│   ├── 📁 scripts/
+│   │   └── main.js                     ← JavaScript логика (4.9 KB)
+│   │
+│   └── 📁 assets/
+│       └── 📁 images/ ← 13 ИЗОБРАЖЕНИЙ
+│           ├── hero-main.jpg           ← Hero секция (51 KB)
+│           ├── фото Арины.jpg          ← Author секция (152 KB)
+│           ├── case-student-1.jpg      ← Case 01 (80 KB)
+│           ├── case-student-video.mp4  ← Case 02 (5.1 MB)
+│           ├── case-student-2-1.jpg    ← Case 03 (101 KB)
+│           ├── case-student-2-2.jpg    ← Case 03 (74 KB)
+│           ├── case-student-2-3.jpg    ← Case 03 (107 KB)
+│           ├── case-student-2-4.jpg    ← Case 03 (78 KB)
+│           └── ... (дубликаты с рус. названиями)
+│
+├── 📁 website-guidelines/ ← ГАЙДЛАЙНЫ ДИЗАЙНА
+│   ├── README.md                       ← Обзор гайдлайнов
+│   ├── 01_style-guide.md               ← Палитра, типографика, компоненты
+│   ├── 02_component-map.md             ← Где что искать в коде
+│   ├── 03_copy-guide.md                ← Правила текста
+│   └── 06_validation-checklist.md      ← Чеклист проверки
+│
+├── 📁 website-sections/ ← ДЕТАЛЬНОЕ ОПИСАНИЕ СЕКЦИЙ
+│   ├── 00_overview.md                  ← Обзор всех секций
+│   ├── 01_nav.md                       ← Navigation
+│   ├── 02_hero.md                      ← Hero
+│   ├── 03_about.md                     ← Running Line
+│   ├── 04_author.md                    ← Author
+│   ├── 05_cases.md                     ← Cases
+│   ├── 06_faq.md                       ← FAQ
+│   ├── 07_form.md                      ← Form
+│   └── 08_footer.md                    ← Footer
+│
+├── 📁 .claude/
+│   └── CLAUDE.md                       ← Инструкции для Claude Code
+│
+└── 📁 aiforcreators/ ← СТАРАЯ ВЕРСИЯ (не трогай)
+    └── ...
+
+
+БЫСТРАЯ НАВИГАЦИЯ
+=================
+
+Хочу...                              Открой файл
+─────────────────────────────────────────────────────────────────
+🚀 Начать деплой                     START_HERE.md
+📘 Деплой на Timeweb                 TIMEWEB_DEPLOY_GUIDE.md
+✅ Чеклист деплоя                    DEPLOY_CHECKLIST.md
+📧 Настроить форму                   FORM_INTEGRATION.md
+🔧 Команды Git                       GIT_COMMANDS.md
+⚖️  Beget vs Timeweb                 BEGET_VS_TIMEWEB_COMPARISON.md
+🎨 Деплой на Тильду                  README_TILDA_DEPLOY.md
+🎨 Палитра и стили                   website-guidelines/01_style-guide.md
+🔍 Найти секцию Hero                 website-guidelines/02_component-map.md
+✍️  Правила текста                   website-guidelines/03_copy-guide.md
+
+
+СТАТИСТИКА
+==========
+
+Лендинг:
+  - Размер: 6.3 MB
+  - Файлов: 17 (HTML, CSS, JS, изображения)
+  - Изображений: 13 (в т.ч. 1 видео)
+  - Секций: 8
+
+Документация:
+  - Инструкций: 12 MD файлов
+  - Гайдлайнов: 3
+  - Чеклистов: 2
+  - Всего документов: ~17 файлов
+
+
+СЛЕДУЮЩИЕ ШАГИ
+==============
+
+1. ⭐ Открой START_HERE.md
+2. 📘 Выбери хостинг (Timeweb рекомендуется)
+3. 🚀 Следуй TIMEWEB_DEPLOY_GUIDE.md
+4. ✅ Отмечай DEPLOY_CHECKLIST.md
+5. 📧 Настрой форму (FORM_INTEGRATION.md)
+6. 🎉 Готово!
+
+
+КОНТАКТЫ
+========
+
+Email: hello@aiforcreators.ru
+Telegram: @aiforcreators
+
+
+Удачи с деплоем! 🚀
