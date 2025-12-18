@@ -105,6 +105,7 @@ function initPresaleForm() {
     const form = document.getElementById('presaleForm');
     const successMessage = document.getElementById('successMessage');
     const statusMessage = document.getElementById('presaleStatus');
+    const presaleSubtitle = document.getElementById('presaleSubtitle');
 
     if (!form) return;
 
@@ -169,6 +170,10 @@ function initPresaleForm() {
             if (successMessage) {
                 form.style.display = 'none';
                 successMessage.classList.remove('hidden');
+            }
+
+            if (presaleSubtitle) {
+                presaleSubtitle.textContent = 'Спасибо! Мы свяжемся с Вами совсем скоро';
             }
 
             if (typeof lucide !== 'undefined') {
