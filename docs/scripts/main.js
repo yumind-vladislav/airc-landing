@@ -4,10 +4,8 @@
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Инициализация Lucide иконок
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
+    // Инициализация Lucide иконок (с проверкой defer загрузки)
+    initLucideIcons();
 
     // Плавная прокрутка по якорям
     initSmoothScroll();
@@ -17,7 +15,57 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Активная секция в навигации (опционально)
     initActiveNavigation();
+    
+    // Lazy loading для видео
+    initLazyVideo();
 });
+
+// ============================================
+// Инициализация Lucide иконок
+// ============================================
+function initLucideIcons() {
+    // Если lucide уже загружен
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+        return;
+    }
+    
+    // Если defer — ждём загрузки скрипта
+    const checkLucide = setInterval(() => {
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+            clearInterval(checkLucide);
+        }
+    }, 50);
+    
+    // Таймаут на случай ошибки загрузки
+    setTimeout(() => clearInterval(checkLucide), 5000);
+}
+
+// ============================================
+// Lazy loading для видео (IntersectionObserver)
+// ============================================
+function initLazyVideo() {
+    const videos = document.querySelectorAll('video[preload="metadata"]');
+    
+    if (videos.length === 0) return;
+    
+    const videoObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const video = entry.target;
+                    video.preload = 'auto';
+                    video.play().catch(() => {});
+                    videoObserver.unobserve(video);
+                }
+            });
+        },
+        { rootMargin: '100px' }
+    );
+    
+    videos.forEach(video => videoObserver.observe(video));
+}
 
 // ============================================
 // Плавная прокрутка по якорям
@@ -95,7 +143,7 @@ function initPresaleForm() {
 }
 
 // ============================================
-// Активная секция в навигации (опционально)
+// Активная секция в навигации (оптимизировано)
 // ============================================
 function initActiveNavigation() {
     const sections = document.querySelectorAll('section[id], header[id]');
@@ -103,30 +151,46 @@ function initActiveNavigation() {
 
     if (sections.length === 0 || navLinks.length === 0) return;
 
+    // Кэшируем ссылки по ID для быстрого доступа
+    const linkMap = new Map();
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+            linkMap.set(href.slice(1), link);
+        }
+    });
+
+    let currentActive = null;
+
     const observer = new IntersectionObserver(
         (entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const id = entry.target.getAttribute('id');
+                    
+                    // Пропускаем если уже активна
+                    if (currentActive === id) return;
 
-                    // Убираем активный класс у всех ссылок
-                    navLinks.forEach(link => {
-                        link.classList.remove('text-white');
-                        link.classList.add('text-secondary');
-                    });
+                    // Убираем активный класс у предыдущей ссылки
+                    if (currentActive && linkMap.has(currentActive)) {
+                        const prevLink = linkMap.get(currentActive);
+                        prevLink.classList.remove('text-white');
+                        prevLink.classList.add('text-secondary');
+                    }
 
                     // Добавляем активный класс к текущей ссылке
-                    const activeLink = document.querySelector(`nav a[href="#${id}"]`);
-                    if (activeLink) {
+                    if (linkMap.has(id)) {
+                        const activeLink = linkMap.get(id);
                         activeLink.classList.remove('text-secondary');
                         activeLink.classList.add('text-white');
+                        currentActive = id;
                     }
                 }
             });
         },
         {
-            threshold: 0.3,
-            rootMargin: '-80px 0px -80px 0px'
+            threshold: 0.2,
+            rootMargin: '-100px 0px -40% 0px'
         }
     );
 
