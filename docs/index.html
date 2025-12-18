@@ -654,7 +654,7 @@
                            class="mt-1 w-4 h-4 bg-transparent border border-zinc-800 rounded text-accent focus:ring-accent focus:ring-offset-0"
                            aria-required="true">
                     <label for="privacy" class="text-xs text-secondary">
-                        Нажимая кнопку, вы соглашаетесь с <a href="#" onclick="openModal('privacy-modal'); return false;" class="text-accent hover:underline cursor-pointer">политикой обработки персональных данных</a>
+                        Нажимая кнопку, вы соглашаетесь с <a href="#" data-modal="privacy-modal" class="text-accent hover:underline cursor-pointer">политикой обработки персональных данных</a>
                     </label>
                 </div>
 
@@ -686,8 +686,8 @@
             </div>
             <div class="flex flex-col items-center gap-3">
                 <div class="flex flex-col md:flex-row gap-4 font-mono text-[10px] uppercase text-zinc-600">
-                    <a href="#" onclick="openModal('privacy-modal'); return false;" class="hover:text-zinc-400 cursor-pointer">Политика конфиденциальности</a>
-                    <a href="#" onclick="openModal('offer-modal'); return false;" class="hover:text-zinc-400 cursor-pointer">Оферта</a>
+                    <a href="#" data-modal="privacy-modal" class="hover:text-zinc-400 cursor-pointer">Политика конфиденциальности</a>
+                    <a href="#" data-modal="offer-modal" class="hover:text-zinc-400 cursor-pointer">Оферта</a>
                 </div>
                 <p class="font-mono text-[10px] uppercase text-zinc-700">
                     Made by AI4C Team © 2024
@@ -702,7 +702,7 @@
             <!-- Header -->
             <div class="sticky top-0 bg-surface border-b border-line px-6 py-5 flex justify-between items-center">
                 <h2 class="font-display text-2xl uppercase text-white">Политика конфиденциальности</h2>
-                <button onclick="closeModal('privacy-modal')" class="text-secondary hover:text-accent transition-colors" aria-label="Закрыть">
+                <button data-close="privacy-modal" class="text-secondary hover:text-accent transition-colors" aria-label="Закрыть">
                     <i data-lucide="x" class="w-6 h-6"></i>
                 </button>
             </div>
@@ -771,7 +771,7 @@
             <!-- Header -->
             <div class="sticky top-0 bg-surface border-b border-line px-6 py-5 flex justify-between items-center">
                 <h2 class="font-display text-2xl uppercase text-white">Договор оферты</h2>
-                <button onclick="closeModal('offer-modal')" class="text-secondary hover:text-accent transition-colors" aria-label="Закрыть">
+                <button data-close="offer-modal" class="text-secondary hover:text-accent transition-colors" aria-label="Закрыть">
                     <i data-lucide="x" class="w-6 h-6"></i>
                 </button>
             </div>

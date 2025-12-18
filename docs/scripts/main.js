@@ -252,8 +252,7 @@ function initActiveNavigation() {
 // Модальные окна (Политика, Оферта)
 // ============================================
 function initModals() {
-    // Глобальные функции для доступа из HTML onclick
-    window.openModal = (modalId) => {
+    const openModal = (modalId) => {
         const modal = document.getElementById(modalId);
         if (!modal) return;
 
@@ -267,7 +266,7 @@ function initModals() {
         }
     };
 
-    window.closeModal = (modalId) => {
+    const closeModal = (modalId) => {
         const modal = document.getElementById(modalId);
         if (!modal) return;
 
@@ -275,6 +274,25 @@ function initModals() {
         modal.classList.add('hidden');
         document.body.style.overflow = '';
     };
+
+    // Event listeners для ссылок с data-modal атрибутом
+    const modalTriggers = document.querySelectorAll('[data-modal]');
+    modalTriggers.forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            const modalId = trigger.getAttribute('data-modal');
+            openModal(modalId);
+        });
+    });
+
+    // Event listeners для кнопок закрытия
+    const closeButtons = document.querySelectorAll('[data-close]');
+    closeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const modalId = button.getAttribute('data-close');
+            closeModal(modalId);
+        });
+    });
 
     // Закрытие при клике на overlay
     const modals = document.querySelectorAll('[id$="-modal"]');
