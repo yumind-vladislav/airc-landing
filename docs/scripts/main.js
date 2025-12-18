@@ -130,11 +130,13 @@ function initPresaleForm() {
             name: formData.get('name'),
             phone: formData.get('phone'),
             telegram: formData.get('telegram'),
+            referral: formData.get('referral'),
+            goal: formData.get('goal'),
             privacy: formData.get('privacy')
         };
 
         // Валидация
-        if (!data.name || !data.phone || !data.telegram || !data.privacy) {
+        if (!data.name || !data.phone || !data.telegram || !data.referral || !data.goal || !data.privacy) {
             alert('Пожалуйста, заполните все поля и примите политику конфиденциальности');
             return;
         }
@@ -147,6 +149,8 @@ function initPresaleForm() {
             name: data.name,
             phone: data.phone,
             telegram: data.telegram,
+            referral: data.referral,
+            goal: data.goal,
             privacy: data.privacy,
             source: window.location.href,
             submittedAt: new Date().toISOString()

@@ -598,6 +598,20 @@
                     </div>
                 </div>
 
+                <div class="group">
+                    <label for="referral" class="block font-mono text-xs uppercase text-secondary mb-2 pl-1">Откуда вы узнали о курсе?</label>
+                    <input type="text" id="referral" name="referral" placeholder="Телеграм, друзья, блог, реклама и т.д." required
+                           class="w-full bg-transparent border border-zinc-800 text-white p-4 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder:text-zinc-700"
+                           aria-required="true">
+                </div>
+
+                <div class="group">
+                    <label for="goal" class="block font-mono text-xs uppercase text-secondary mb-2 pl-1">Какой результат вы хотите получить после курса?</label>
+                    <textarea id="goal" name="goal" rows="3" placeholder="Опишите ваш желаемый результат" required
+                              class="w-full bg-transparent border border-zinc-800 text-white p-4 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder:text-zinc-700 resize-none"
+                              aria-required="true"></textarea>
+                </div>
+
                 <div class="flex items-start gap-3 pt-2">
                     <input type="checkbox" id="privacy" name="privacy" required
                            class="mt-1 w-4 h-4 bg-transparent border border-zinc-800 rounded text-accent focus:ring-accent focus:ring-offset-0"
