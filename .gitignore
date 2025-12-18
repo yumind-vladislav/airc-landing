@@ -7,20 +7,35 @@
 .vscode/
 .idea/
 .cursor/
+.claude/
 
 # Временные файлы
 *.log
 *.tmp
 *.cache
 
-# Большие медиафайлы (можно добавить в репозиторий отдельно)
+# Большие медиафайлы
 *.mp4
 *.MP4
 *.mov
 *.avi
 
-# Игнорируем папку с архивом
+# Рабочие материалы и документация разработки
 source/
-
-# Игнорируем папку aiforcreators (если это старая версия)
 aiforcreators/
+website-guidelines/
+website-sections/
+
+# Гайды и инструкции для разработки
+DEPLOY_CHECKLIST.md
+FILE_TREE.txt
+FORM_INTEGRATION.md
+GIT_COMMANDS.md
+PACKAGE_SUMMARY.md
+START_HERE.md
+TIMEWEB_DEPLOY_GUIDE.md
+
+# Исходные изображения в корне (дубликаты)
+главная страница фото.jpg
+кейс ученика*.jpg
+фото Арины.jpg
