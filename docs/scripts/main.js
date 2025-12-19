@@ -178,9 +178,22 @@ function initPresaleForm() {
         if (submitButton) submitButton.disabled = true;
         setStatus('Отправляем заявку...');
 
+        const normalizePhoneForSheet = (phone) => {
+            if (!phone) return '';
+
+            const trimmed = phone.trim();
+
+            // Добавляем апостроф, чтобы Google Sheets не пытался парсить номер как формулу
+            if (/^[+=]/.test(trimmed)) {
+                return `'${trimmed}`;
+            }
+
+            return trimmed;
+        };
+
         const payload = new URLSearchParams({
             name: data.name,
-            phone: data.phone,
+            phone: normalizePhoneForSheet(data.phone),
             telegram: data.telegram,
             referral: data.referral,
             goal: data.goal,
