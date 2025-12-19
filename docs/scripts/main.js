@@ -109,6 +109,7 @@ function initPresaleForm() {
     const successMessage = document.getElementById('successMessage');
     const statusMessage = document.getElementById('presaleStatus');
     const presaleSubtitle = document.getElementById('presaleSubtitle');
+    const phoneInput = form ? form.querySelector('#phone') : null;
 
     if (!form) return;
 
@@ -123,6 +124,34 @@ function initPresaleForm() {
     if (!endpoint) {
         setStatus('Укажите URL веб-приложения Apps Script.');
         return;
+    }
+
+    if (phoneInput) {
+        const phonePrefix = '+7';
+
+        const moveCursorToEnd = () => {
+            const end = phoneInput.value.length;
+            requestAnimationFrame(() => phoneInput.setSelectionRange(end, end));
+        };
+
+        const ensurePrefix = () => {
+            const value = phoneInput.value;
+
+            if (!value.trim()) {
+                phoneInput.value = `${phonePrefix} `;
+                moveCursorToEnd();
+                return;
+            }
+
+            if (!value.startsWith(phonePrefix)) {
+                const cleaned = value.replace(/^\+?/, '').replace(/^(7|8)/, '').trimStart();
+                phoneInput.value = cleaned ? `${phonePrefix} ${cleaned}` : `${phonePrefix} `;
+                moveCursorToEnd();
+            }
+        };
+
+        phoneInput.addEventListener('focus', ensurePrefix);
+        phoneInput.addEventListener('input', ensurePrefix);
     }
 
     form.addEventListener('submit', async (e) => {
